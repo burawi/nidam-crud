@@ -35,7 +35,7 @@ module.exports = function(G,mdl) {
 
     router.post('/delete', function(req, res, next) {
         mdl.F.delete(req).then(function (deleted) {
-            res.json(item);
+            res.json({success: true});
         });
     });
 

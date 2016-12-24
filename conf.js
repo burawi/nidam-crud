@@ -10,7 +10,9 @@ module.exports = function (G) {
         ],
         msg: {
             name: 'name',
-            add: 'add'
+            add: 'add',
+            edit: 'edit',
+            delete: 'delete'
         }
     };
 

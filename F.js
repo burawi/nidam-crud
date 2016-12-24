@@ -1,5 +1,5 @@
 var randomstring = require("randomstring");
-var pick = require('object-pick');
+var pick = require('js-object-pick');
 var md5 = require('md5');
 
 module.exports = function (G,conf) {
@@ -16,7 +16,7 @@ module.exports = function (G,conf) {
                 })
             });
         },
-        add: function (req) {
+        add: function (req,cb) {
             return new Promise(function(resolve, reject) {
                 var item = new T.tayr(table,pick(req.body,tableProps));
                 item.store().then(function () {
