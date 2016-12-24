@@ -4,11 +4,14 @@ module.exports = function (G) {
 
     var exports = {
         tayrProp: 'T',
-        table: 'user',
+        table: 'crud',
         tableProps: [
-            'name',
-            'password'
-        ]
+            'name'
+        ],
+        msg: {
+            name: 'name',
+            add: 'add'
+        }
     };
 
     return exports;
