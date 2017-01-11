@@ -15,21 +15,26 @@ module.exports = function(G,mdl) {
         });
     });
 
+    adminRouter.get('/', function(req, res, next) {
+        mdl.V.P.admin.extends(G.main.V.L.admin);
+        G.nidam.render(req, res, mdl.V.P.admin  , {mdl: mdl});
+    });
+
     router.post('/list', function(req, res, next) {
         mdl.F.list().then(function (list) {
-            res.json(list);
+            res.json({success: true, msg: list});
         });
     });
 
     router.post('/add', function(req, res, next) {
         mdl.F.add(req).then(function (item) {
-            res.json(item);
+            res.json({success: true, msg: item});
         });
     });
 
     router.post('/edit', function(req, res, next) {
         mdl.F.edit(req).then(function (item) {
-            res.json(item);
+            res.json({success: true, msg: item});
         });
     });
 
@@ -39,6 +44,6 @@ module.exports = function(G,mdl) {
         });
     });
 
-    G.app.use('/' + mdl.conf. prefix, router);
-    G.app.use('/admin/' + mdl.conf. prefix, adminRouter);
+    G.app.use('/' + mdl.conf.prefix, router);
+    G.app.use('/admin/' + mdl.conf.prefix, adminRouter);
 };
